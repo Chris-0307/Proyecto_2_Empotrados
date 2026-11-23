@@ -65,7 +65,7 @@ ifup_add_audio_subsystem	6
 ###############################################################################
 # Audio a 44.1 kHz: el codec necesita MCLK = 11.2896 MHz para esa familia de
 # frecuencias. Los WAV de 8 kHz y 16 kHz se remuestrean en software.
-set_instance_parameter_value AV_Config sampling_rate	"44.1 kHz"
+set_instance_parameter_value AV_Config sampling_rate	"48 kHz"
 ###############################################################################
 
 

@@ -58,12 +58,11 @@ compile:
 	@cd $(BUILD) && $(QBIN)/quartus_sh --flow compile $(NAME) \
 		> logs/compile.txt 2>&1 || (grep -E "^Error|Error \(" logs/compile.txt | head -20; exit 1)
 	@grep -E "Total logic elements|Logic utilization|Total registers|Total block memory|Total DSP" \
-		$(BUILD)/output_files/$(NAME).fit.summary 2>/dev/null || true
+		$(BUILD)/$(NAME).fit.summary 2>/dev/null || true
 
 rbf:
 	@cd $(BUILD) && $(QBIN)/quartus_cpf -m FPP -o bitstream_compression=on \
-		-c output_files/$(NAME).sof $(NAME).rbf > logs/rbf.txt 2>&1
-	@cp $(BUILD)/output_files/$(NAME).sof $(BUILD)/
+		-c $(NAME).sof $(NAME).rbf > logs/rbf.txt 2>&1
 	@echo "$(BUILD)/$(NAME).rbf generado"
 
 header:
