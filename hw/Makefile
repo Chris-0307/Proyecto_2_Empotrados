@@ -79,3 +79,7 @@ program:
 
 clean:
 	rm -rf $(BUILD)
+
+power:
+	@cd $(BUILD) && $(QBIN)/quartus_pow $(NAME) > logs/power.txt 2>&1 || (tail -20 $(BUILD)/logs/power.txt; exit 1)
+	@cat $(BUILD)/$(NAME).pow.summary
