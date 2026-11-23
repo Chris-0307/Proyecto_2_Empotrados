@@ -1,19 +1,7 @@
-db/
-incremental_db/
-output_files/*
-!output_files/*.sof
-!output_files/*.rbf
-qdb/
-tmp-clearbox/
-greybox_tmp/
+# Todo lo que genera Quartus/Platform Designer va en hw/build/ y no se versiona
+hw/build/
 *.qws
 *.bak
-*.rpt
-*.summary
-*.smsg
-*.done
-*.pin
-*.sld
 .qsys_edit/
-hw/**/synthesis/
-hw/**/simulation/
+db/
+incremental_db/
