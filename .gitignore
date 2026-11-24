@@ -1,0 +1,7 @@
+# Todo lo que genera Quartus/Platform Designer va en hw/build/ y no se versiona
+hw/build/
+*.qws
+*.bak
+.qsys_edit/
+db/
+incremental_db/
