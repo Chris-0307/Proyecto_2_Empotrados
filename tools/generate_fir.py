@@ -40,7 +40,8 @@ assert all(-32768 <= c <= 32767 for c in fixed)
 assert sum(fixed) == 32768
 
 # Generar archivo de memoria para SystemVerilog
-output = Path("hw/ip/audio_dsp/fir_coeffs.mem")
+repo_root = Path(__file__).resolve().parent.parent
+output = repo_root / "hw/ip/audio_dsp/fir_coeffs.mem"
 output.parent.mkdir(parents=True, exist_ok=True)
 
 with output.open("w") as f:
