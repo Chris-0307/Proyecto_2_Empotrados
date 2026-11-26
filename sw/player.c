@@ -1,4 +1,4 @@
-/* Reproductor de audio V3. HPS + Audio IP del SoC base. */
+/* Reproductor de audio V4. HPS + Audio IP + FIR en FPGA. */
 #define _POSIX_C_SOURCE 200809L
 #define _FILE_OFFSET_BITS 64
 #include <stdio.h>
@@ -24,6 +24,12 @@
 #define AUD_LEFT 8
 #define AUD_RIGHT 12
 
+/* Registros del FIR (offsets desde LW_BASE). */
+#define FIR_CONTROL  0x5000
+#define FIR_STATUS   0x5004
+#define FIR_DATA_IN  0x5008
+#define FIR_DATA_OUT 0x500C
+
 static volatile uint8_t *lw;
 static volatile sig_atomic_t stop;
 static volatile uint8_t *vga;
@@ -35,7 +41,7 @@ static int16_t echo[7200][2];
 static unsigned echo_pos, echo_len;
 static double last_key[4];
 static int button_fd = -1;
-static const char *filters[] = {"Bypass", "Pasa-bajos (SW provisional)", "Pasa-altos", "Eco"};
+static const char *filters[] = {"Bypass", "Pasa-bajos FIR (HW)", "Pasa-altos", "Eco"};
 enum { PLAYING, PAUSED, STOPPED };
 enum { FINISHED, NEXT, PREVIOUS, RESTART, ERROR };
 
@@ -218,15 +224,32 @@ static void reset_filter(unsigned rate)
     echo_len=rate*150/1000;
 }
 
-static void apply_filter(int *l,int *r)
+/* STATUS: bit 0 listo para escribir, bit 1 resultado disponible. */
+static int esperar_fir(uint32_t mascara)
 {
+    for (int i=0; i<1000000 && !stop; i++) {
+        if (rd(FIR_STATUS) & mascara) return 0;
+    }
+    if (!stop)
+        fprintf(stderr,"FIR: timeout, STATUS = 0x%X\n",rd(FIR_STATUS));
+    return -1;
+}
+
+static int apply_filter(int *l,int *r)
+{
+    if (filter==1) {
+        if (esperar_fir(1)) return -1;
+        wr(FIR_DATA_IN,((uint32_t)(uint16_t)*r<<16)|(uint16_t)*l);
+        if (esperar_fir(2)) return -1;
+        uint32_t dato=rd(FIR_DATA_OUT);
+        *l=(int16_t)(dato & 0xFFFF);
+        *r=(int16_t)(dato >> 16);
+        return 0;
+    }
+
     int x[2]={*l,*r};
     for (int ch=0;ch<2;ch++) {
-        if (filter==1) {
-            /* Pasa-bajos sencillo, hasta integrar el FIR de hardware. */
-            low[ch]+=(x[ch]-low[ch])/3;
-            x[ch]=low[ch];
-        } else if (filter==2) {
+        if (filter==2) {
             low[ch]+=(x[ch]-low[ch])/12;
             x[ch]=x[ch]-low[ch];
         } else if (filter==3) {
@@ -237,6 +260,7 @@ static void apply_filter(int *l,int *r)
     }
     if (filter==3 && ++echo_pos>=echo_len) echo_pos=0;
     *l=limit(x[0]); *r=limit(x[1]);
+    return 0;
 }
 
 static void vga_line(unsigned row,const char *s)
@@ -306,6 +330,10 @@ static int play(FILE *f,struct wav *w,unsigned out_rate,const char *name,
         int changed=selected!=filter;
         if (changed) {
             filter=selected; reset_filter(out_rate);
+            if (filter==1) {
+                wr(FIR_CONTROL,1);
+                if (esperar_fir(1)) return ERROR;
+            }
             printf("Filtro: %s\n",filters[filter]); fflush(stdout);
         }
         double t=now();
@@ -333,7 +361,7 @@ static int play(FILE *f,struct wav *w,unsigned out_rate,const char *name,
         while (k-- && i<total && !stop) {
             int a=l+(nl-l)*(int64_t)phase/out_rate;
             int b=r+(nr-r)*(int64_t)phase/out_rate;
-            apply_filter(&a,&b);
+            if (apply_filter(&a,&b)) return ERROR;
             send_frame(a*volume/100,b*volume/100);
             i++; phase+=w->rate;
             while (phase>=out_rate) {
@@ -360,7 +388,7 @@ int main(int argc,char **argv)
     if (!measure && argc<3) return 1;
     if (!info && !measure) {
         rate=atoi(argv[1]);
-        if (rate!=44100 && rate!=48000) { fprintf(stderr,"Frecuencia de salida: 44100 o 48000\n"); return 1; }
+        if (rate!=44100) { fprintf(stderr,"Frecuencia de salida: 44100 Hz (FIR)\n"); return 1; }
     }
     int fd=-1, result=0;
     if (!info) {
