@@ -5,3 +5,17 @@ hw/build/
 .qsys_edit/
 db/
 incremental_db/
+
+# Archivos generados por el reproductor
+/sw/player
+/sw/*.wav
+/prueba.txt
+
+# Archivos generados al compilar drivers
+/sw/drivers/*.o
+/sw/drivers/*.ko
+/sw/drivers/*.mod.c
+/sw/drivers/.*.cmd
+/sw/drivers/.tmp_versions/
+/sw/drivers/Module.symvers
+/sw/drivers/modules.order
