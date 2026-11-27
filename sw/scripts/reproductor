@@ -19,7 +19,7 @@ case "$1" in
         test -f buttons.ko
         test -x player_v4
 
-        set -- pistas/*.wav
+        set -- canciones/*.wav
         test -f "$1"
 
         # Descargar el driver si esta activo
@@ -50,7 +50,7 @@ case "$1" in
         insmod buttons.ko
 
         # Iniciar reproductor
-        ./player_v4 44100 pistas/*.wav \
+        ./player_v4 44100 canciones/*.wav \
             > /tmp/reproductor.log 2>&1 </dev/null &
 
         echo "Reproductor iniciado"
