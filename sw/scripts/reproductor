@@ -1,0 +1,70 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+        set -e
+
+        cd /home/root
+
+        if pidof player_v4 >/dev/null; then
+            echo "El reproductor ya esta activo"
+            exit 0
+        fi
+
+        echo "Inicio del reproductor"
+        cat /proc/uptime
+
+        # Comprobar archivos
+        test -s DE1_SoC_Reproductor.rbf
+        test -f buttons.ko
+        test -x player_v4
+
+        set -- pistas/*.wav
+        test -f "$1"
+
+        # Descargar el driver si esta activo
+        if grep -q '^buttons ' /proc/modules; then
+            rmmod buttons
+        fi
+
+        # Deshabilitar puentes
+        echo 0 > /sys/class/fpga-bridge/fpga2hps/enable
+        echo 0 > /sys/class/fpga-bridge/hps2fpga/enable
+        echo 0 > /sys/class/fpga-bridge/lwhps2fpga/enable
+
+        # Configurar FPGA
+        echo "Configurando FPGA..."
+        dd if=DE1_SoC_Reproductor.rbf of=/dev/fpga0 bs=1M
+
+        if [ "$(cat /sys/class/fpga/fpga0/status)" != "user mode" ]; then
+            echo "ERROR: FPGA no configurada"
+            exit 1
+        fi
+
+        # Habilitar puentes
+        echo 1 > /sys/class/fpga-bridge/fpga2hps/enable
+        echo 1 > /sys/class/fpga-bridge/hps2fpga/enable
+        echo 1 > /sys/class/fpga-bridge/lwhps2fpga/enable
+
+        # Cargar driver
+        insmod buttons.ko
+
+        # Iniciar reproductor
+        ./player_v4 44100 pistas/*.wav \
+            > /tmp/reproductor.log 2>&1 </dev/null &
+
+        echo "Reproductor iniciado"
+        cat /proc/uptime
+        ;;
+
+    stop)
+        if pidof player_v4 >/dev/null; then
+            kill $(pidof player_v4)
+        fi
+        ;;
+
+    *)
+        echo "Uso: $0 start|stop"
+        exit 1
+        ;;
+esac
