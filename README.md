@@ -154,7 +154,7 @@ La simulación independiente del FIR pasó 525 muestras de prueba; las ganancias
 
 El sistema reproduce canciones reales y se comprobó el control de volumen y la actualización de metadatos mediante lectura de la memoria VGA. Para repetir esa lectura, compilar `sw/tests/leer_vga.c` y ejecutar `./leer_vga` en la placa con la FPGA configurada y el reproductor activo. Es una prueba de memoria, no de salida de video física.
 
-Los tiempos de latencia se midieron dentro del programa usando pistas de prueba; no incluyen todo el recorrido físico hasta la salida analógica. La validación visual del monitor, las latencias extremo a extremo y la prueba prolongada están pendientes. El análisis de timing tiene una violación de setup en `clk_vga` (-8.945 ns); no se afirma cierre completo de temporización.
+Los tiempos de latencia se midieron dentro del programa usando pistas de prueba; no incluyen todo el recorrido físico hasta la salida analógica. La validación visual del monitor, las latencias extremo a extremo y la prueba prolongada están pendientes. Se corrigió la restricción del reloj VGA y el análisis de setup y hold obtuvo slack positivo en los cuatro modelos temporales.
 
 ## Documentación
 

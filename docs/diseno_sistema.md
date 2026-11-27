@@ -131,7 +131,7 @@ Primero se simuló el núcleo FIR y se comparó con el resultado de referencia d
 | Latencias de botones, filtros y pistas | Favorables en pruebas internas; pendiente extremo a extremo |
 | Salida VGA física | Pendiente de monitor |
 | Estabilidad prolongada y calidad de audio | Prueba funcional realizada; falta ensayo prolongado y cuantitativo |
-| Timing completo | No cerrado: violación clk_vga |
+| Timing | Setup y hold positivos en los cuatro modelos analizados |
 
 Los resultados de recursos, potencia y timing se incluyen en [recursos_y_potencia.md](recursos_y_potencia.md). Los resultados de latencia y sus limitaciones están en [latencias.md](latencias.md).
 

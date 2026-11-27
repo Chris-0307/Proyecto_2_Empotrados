@@ -37,7 +37,7 @@ El filtro utiliza aproximadamente 8.1% de las ALMs del sistema integrado. Se reu
 
 La diferencia estimada del sistema es de 6.96 mW. PowerPlay indicó confianza baja por falta de información de actividad; no se trata de una medición eléctrica ni de una comparación aislada entre FIR en hardware y FIR en software. La estimación no incluye necesariamente todo el consumo de la placa.
 
-## Timing Analyzer
+## Timing Analyzer - análisis original - análisis original
 
 | Comprobación | Peor slack reportado (ns) |
 |---|---:|
@@ -52,3 +52,25 @@ La diferencia estimada del sistema es de 6.96 mW. PowerPlay indicó confianza ba
 El reloj del sistema cumple los chequeos de setup reportados en las esquinas analizadas. La salida asociada a `clk_vga` presenta una violación, con TNS de -219.069 ns en la peor esquina. No se considera cerrado el timing de todo el SoC. Se conservó el bitstream probado y queda pendiente validar la imagen física y revisar la relación entre el reloj generado por el PLL y las restricciones de salida VGA si se requiere una corrección.
 
 Regeneración de reportes: `cd hw && make all && make power`. Archivos `.fit.summary`, `.fit.rpt`, `.pow.summary`, `.sta.summary` en `hw/build/`.
+
+## Corrección del reloj VGA
+
+La restricción original declaraba VGA_CLK como un reloj
+independiente de 25.18 MHz, pero el PLL genera 25 MHz
+y el controlador invierte el reloj de salida.
+
+Se corrigió el SDC usando create_generated_clock con -invert.
+
+| Comprobación | Slack (ns) |
+|---|---:|
+| Setup VGA corregido (Slow 85 C) | +18.244 |
+| Hold VGA corregido (Slow 85 C) | +18.069 |
+| Peor setup global multicorner | +0.030 |
+| Peor hold global multicorner | +0.077 |
+
+El análisis se realizó sobre el diseño ya compilado,
+sin modificar el hardware ni reprogramar la FPGA.
+No se encontraron violaciones de setup y hold en las
+rutas analizadas. Permanecen warnings y rutas sin
+restricciones, y falta validar la imagen en un monitor.
+

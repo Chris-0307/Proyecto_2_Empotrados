@@ -17,7 +17,7 @@ create_clock -period "100 MHz" -name clk_dram [get_ports DRAM_CLK]
 #create_clock -period "18.432 MHz" -name clk_audxck [get_ports AUD_XCK]
 #create_clock -period "1.536 MHz" -name clk_audbck [get_ports AUD_BCLK]
 # VGA : 640x480@60Hz
-create_clock -period "25.18 MHz" -name clk_vga [get_ports VGA_CLK]
+# VGA clock generado por el PLL
 # VGA : 800x600@60Hz
 #create_clock -period "40.0 MHz" -name clk_vga [get_ports VGA_CLK]
 # VGA : 1024x768@60Hz
@@ -30,6 +30,8 @@ create_clock -period "25.18 MHz" -name clk_vga [get_ports VGA_CLK]
 # Create Generated Clock
 #**************************************************************
 derive_pll_clocks
+
+create_generated_clock -name clk_vga -divide_by 1 -invert -source [get_pins {VGA_PLL|altera_pll_i|general*.gpll~PLL_OUTPUT_COUNTER|divclk}] [get_ports VGA_CLK]
 
 
 
