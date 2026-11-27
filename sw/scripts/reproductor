@@ -50,7 +50,7 @@ case "$1" in
         insmod buttons.ko
 
         # Iniciar reproductor
-        ./player_v4 44100 canciones/*.wav \
+        PLAYER_ADC=1 PLAYER_VGA=1 ./player_v4 44100 canciones/*.wav \
             > /tmp/reproductor.log 2>&1 </dev/null &
 
         echo "Reproductor iniciado"
