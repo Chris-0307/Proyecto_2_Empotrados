@@ -1,17 +1,22 @@
 # Reproductor V4
 
-Usar solamente con el SOF que contiene Audio_FIR en 0xFF205000.
-El driver buttons.ko debe estar cargado despues de programar la FPGA.
-No reprogramar mientras el reproductor o driver estan activos.
+Usar el RBF/SOF integrado con Audio_FIR en 0xFF205000. El driver `buttons.ko` debe cargarse después de programar la FPGA. No reprogramar con el reproductor o el driver activos.
 
-Compilar con `make` en sw y copiar el ejecutable al HPS.
-Ejecutar `./player 44100 cancion.wav prueba.wav`.
+En Ubuntu, desde `sw`:
 
-SW1:SW0: 00 bypass, 01 pasa-bajos FIR hardware, 10 pasa-altos software, 11 eco software.
-FIR MMIO: CONTROL 0x5000, STATUS 0x5004, DATA_IN 0x5008, DATA_OUT 0x500C (offsets LW).
-Se reinicia el historial al seleccionar FIR, se espera STATUS bit 0, se escribe el par de muestras,
-se espera bit 1 y se lee el resultado. Izquierdo bits 15:0, derecho bits 31:16.
-Ante timeout termina la reproduccion con error; no usa un filtro software de respaldo.
-Los WAV de 8, 16 y 44.1 kHz se remuestrean a 44.1 kHz. ADC y VGA siguen opcionales (PLAYER_ADC, PLAYER_VGA).
+```sh
+arm-linux-gnueabihf-gcc -Wall -O2 -static player.c -o player_v4 -lm
+```
 
-Pendiente: verificar reproduccion fisica de V4, latencias y pruebas completas.
+En la placa, con FPGA y driver ya configurados y sin otro reproductor activo:
+
+```sh
+cd /home/root
+PLAYER_ADC=1 PLAYER_VGA=1 ./player_v4 44100 canciones/*.wav
+```
+
+El script automático utiliza esa misma configuración. SW1:SW0 selecciona 00 bypass, 01 FIR hardware, 10 pasa-altos software, 11 eco software. KEY0 play/pausa, KEY1 stop, KEY2 anterior, KEY3 siguiente.
+
+Se remuestrean los WAV PCM de 8, 16 y 44.1 kHz a 44.1 kHz. Se leen metadatos RIFF LIST/INFO y el volumen se obtiene de ADC_IN0. La salida VGA usa memoria de caracteres de 80x60 con stride 128. El FIR se reinicia al seleccionarlo; se espera STATUS bit 0 antes de escribir y bit 1 antes de leer. Ante timeout se termina con error, no se sustituye el FIR por software.
+
+La reproducción física, los botones, filtros, volumen y escritura en memoria de video se probaron en la DE1-SoC. Quedan pendientes la prueba visual VGA, las latencias extremo a extremo y la estabilidad prolongada. Ver [resultados](../docs/latencias.md).
