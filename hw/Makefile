@@ -39,6 +39,9 @@ check:
 qsys:
 	@mkdir -p $(BUILD) $(LOGS)
 	@cp scripts/*.tcl $(BUILD)/
+	@mkdir -p $(BUILD)/ip $(BUILD)/hw/ip/audio_dsp
+	@cp -r ip/audio_dsp $(BUILD)/ip/
+	@cp ip/audio_dsp/fir_coeffs.mem $(BUILD)/hw/ip/audio_dsp/
 	@for s in $(SUBSYS) gen_computer_system; do \
 		echo "qsys-script $$s.tcl"; \
 		(cd $(BUILD) && $(SOPC)/qsys-script --script=$$s.tcl > logs/$$s.txt 2>&1) || \

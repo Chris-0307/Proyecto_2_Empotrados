@@ -25,6 +25,7 @@
 #     0xC8000000  Pixel_Buffer     on-chip, 320x240x16 bits para la VGA
 #     0xC9000000  Char buffer      80x60 caracteres de texto (metadatos)
 #
+#     0xFF205000  Audio_FIR        Filtro FIR estereo personalizado
 # En Linux, la IRQ n de f2h_irq0 corresponde a la GIC SPI 72+n
 # (botones = SPI 73, timer = SPI 72, audio = SPI 78).
 ###############################################################################
@@ -59,6 +60,15 @@ ifup_add_dma_address_translation	Pixel_DMA_Addr_Translation	0xFF203020 $ifup_fla
 ifup_add_dma_address_translation	Char_DMA_Addr_Translation	0xFF203030 $ifup_flag_char_buf_dma_addr_translator
 ifup_add_vga_subsystem
 ifup_add_audio_subsystem	6
+# Filtro FIR personalizado
+add_instance Audio_FIR fir_mmio 1.0
+
+ifup_connect_system_clock Audio_FIR.clock
+ifup_connect_reset_sources Audio_FIR.reset
+
+ifup_connect_slave_to_mm_masters Audio_FIR.s1 0xFF205000 $ifup_flag_hps_h2f_lw_master
+
+lock_avalon_base_address Audio_FIR.s1
 ###############################################################################
 
 

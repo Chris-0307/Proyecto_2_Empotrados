@@ -153,7 +153,7 @@
 #define SYSID_SPAN 8
 #define SYSID_END 0x2047
 #define SYSID_ID 0
-#define SYSID_TIMESTAMP 1795463647
+#define SYSID_TIMESTAMP 1795656451
 
 /*
  * Macros for device 'AV_Config', class 'altera_up_avalon_audio_and_video_config'
@@ -221,6 +221,17 @@
 #define ADC_BASE 0x4000
 #define ADC_SPAN 32
 #define ADC_END 0x401f
+
+/*
+ * Macros for device 'Audio_FIR', class 'fir_mmio'
+ * The macros are prefixed with 'AUDIO_FIR_'.
+ * The prefix is the slave descriptor.
+ */
+#define AUDIO_FIR_COMPONENT_TYPE fir_mmio
+#define AUDIO_FIR_COMPONENT_NAME Audio_FIR
+#define AUDIO_FIR_BASE 0x5000
+#define AUDIO_FIR_SPAN 16
+#define AUDIO_FIR_END 0x500f
 
 /*
  * Macros for device 'Pixel_Buffer', class 'altera_avalon_onchip_memory2'
