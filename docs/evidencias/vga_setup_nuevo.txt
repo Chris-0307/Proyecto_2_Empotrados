@@ -1,0 +1,343 @@
+----------------
+; Command Info ;
+----------------
+Report Timing: Found 3 setup paths (0 violated).  Worst case slack is 18.244 
+
+Tcl Command:
+    report_timing -setup -file /tmp/vga_setup_nuevo.txt -to_clock [get_clocks {clk_vga}] -npaths 3 -detail full_path
+
+Options:
+    -to_clock [get_clocks {clk_vga}] 
+    -setup 
+    -npaths 3 
+    -detail full_path 
+    -file {/tmp/vga_setup_nuevo.txt} 
+
+Delay Model:
+    Slow 1100mV 85C Model
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Summary of Paths                                                                                                                                                                                                                                                                        ;
++--------+---------------------------------------------------------------------------------------------------------------------------------------------+----------+----------------------------------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                                                                                                   ; To Node  ; Launch Clock                                                   ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------------------------------------------------------------------------------------------------+----------+----------------------------------------------------------------+-------------+--------------+------------+------------+
+; 18.244 ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_B[2] ; VGA_B[2] ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_vga     ; 20.000       ; 1.845      ; 3.107      ;
+; 18.271 ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[5] ; VGA_G[5] ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_vga     ; 20.000       ; 1.831      ; 3.118      ;
+; 18.277 ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[3] ; VGA_G[3] ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; clk_vga     ; 20.000       ; 1.846      ; 3.127      ;
++--------+---------------------------------------------------------------------------------------------------------------------------------------------+----------+----------------------------------------------------------------+-------------+--------------+------------+------------+
+
+Path #1: Setup slack is 18.244 
+===============================================================================
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Path Summary                                                                                                                                                     ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Property           ; Value                                                                                                                                       ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; From Node          ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_B[2] ;
+; To Node            ; VGA_B[2]                                                                                                                                    ;
+; Launch Clock       ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                                                                              ;
+; Latch Clock        ; clk_vga                                                                                                                                     ;
+; Data Arrival Time  ; 8.412                                                                                                                                       ;
+; Data Required Time ; 26.656                                                                                                                                      ;
+; Slack              ; 18.244                                                                                                                                      ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------+
+; Statistics                                                                           ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+; Property               ; Value  ; Count ; Total Delay ; % of Total ; Min    ; Max    ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+; Setup Relationship     ; 20.000 ;       ;             ;            ;        ;        ;
+; Clock Skew             ; 1.845  ;       ;             ;            ;        ;        ;
+; Data Delay             ; 3.107  ;       ;             ;            ;        ;        ;
+; Number of Logic Levels ;        ; 0     ;             ;            ;        ;        ;
+; Physical Delays        ;        ;       ;             ;            ;        ;        ;
+;  Arrival Path          ;        ;       ;             ;            ;        ;        ;
+;   Clock                ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 6     ; 5.205       ; 59         ; 0.000  ; 2.904  ;
+;    Cell                ;        ; 5     ; 3.549       ; 41         ; 0.268  ; 1.573  ;
+;    PLL Compensation    ;        ; 1     ; -3.449      ; 0          ; -3.449 ; -3.449 ;
+;   Data                 ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 1     ; 0.000       ; 0          ; 0.000  ; 0.000  ;
+;    Cell                ;        ; 3     ; 3.107       ; 100        ; 0.000  ; 2.601  ;
+;    uTco                ;        ; 1     ; 0.000       ; 0          ; 0.000  ; 0.000  ;
+;  Required Path         ;        ;       ;             ;            ;        ;        ;
+;   Clock                ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 6     ; 4.324       ; 43         ; 0.000  ; 2.311  ;
+;    Cell                ;        ; 6     ; 5.713       ; 57         ; 0.000  ; 3.208  ;
+;    PLL Compensation    ;        ; 1     ; -4.490      ; 0          ; -4.490 ; -4.490 ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+Note: Negative delays are omitted from totals when calculating percentages
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Data Arrival Path                                                                                                                                                                                                  ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Total    ; Incr     ; RF ; Type ; Fanout ; Location                  ; Element                                                                                                                                     ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; 0.000    ; 0.000    ;    ;      ;        ;                           ; launch edge time                                                                                                                            ;
+; 5.305    ; 5.305    ;    ;      ;        ;                           ; clock path                                                                                                                                  ;
+;   0.000  ;   0.000  ;    ;      ;        ;                           ; source latency                                                                                                                              ;
+;   0.000  ;   0.000  ;    ;      ; 1      ; PIN_AA16                  ; CLOCK2_50                                                                                                                                   ;
+;   0.000  ;   0.000  ; RR ; IC   ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|i                                                                                                                           ;
+;   0.661  ;   0.661  ; RR ; CELL ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|o                                                                                                                           ;
+;   1.992  ;   1.331  ; RR ; IC   ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkin[2]                                                                             ;
+;   2.283  ;   0.291  ; RR ; CELL ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkout                                                                               ;
+;   2.283  ;   0.000  ; RR ; IC   ; 10     ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin                                                                                ;
+;   -1.166 ;   -3.449 ; RR ; COMP ; 1      ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                                                                                ;
+;   -1.166 ;   0.000  ; RR ; IC   ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                                                                           ;
+;   0.407  ;   1.573  ; RR ; CELL ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                                                                              ;
+;   1.377  ;   0.970  ; RR ; IC   ; 1      ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|inclk                                                                                           ;
+;   1.645  ;   0.268  ; RR ; CELL ; 135    ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|outclk                                                                                          ;
+;   4.549  ;   2.904  ; RR ; IC   ; 1      ; DDIOOUTCELL_X20_Y81_N10   ; The_System|vga_subsystem|vga_controller|VGA_B[2]|clk                                                                                        ;
+;   5.305  ;   0.756  ; RR ; CELL ; 1      ; DDIOOUTCELL_X20_Y81_N10   ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_B[2] ;
+; 8.412    ; 3.107    ;    ;      ;        ;                           ; data path                                                                                                                                   ;
+;   5.305  ;   0.000  ;    ; uTco ; 1      ; DDIOOUTCELL_X20_Y81_N10   ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_B[2] ;
+;   5.811  ;   0.506  ; RR ; CELL ; 1      ; DDIOOUTCELL_X20_Y81_N10   ; The_System|vga_subsystem|vga_controller|VGA_B[2]|q                                                                                          ;
+;   5.811  ;   0.000  ; RR ; IC   ; 1      ; IOOBUF_X20_Y81_N2         ; VGA_B[2]~output|i                                                                                                                           ;
+;   8.412  ;   2.601  ; RR ; CELL ; 1      ; IOOBUF_X20_Y81_N2         ; VGA_B[2]~output|o                                                                                                                           ;
+;   8.412  ;   0.000  ; RR ; CELL ; 0      ; PIN_H13                   ; VGA_B[2]                                                                                                                                    ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Data Required Path                                                                                                                       ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+; Total    ; Incr     ; RF ; Type ; Fanout ; Location                  ; Element                                                           ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+; 20.000   ; 20.000   ;    ;      ;        ;                           ; latch edge time                                                   ;
+; 27.150   ; 7.150    ;    ;      ;        ;                           ; clock path                                                        ;
+;   20.000 ;   0.000  ;    ;      ;        ;                           ; source latency                                                    ;
+;   20.000 ;   0.000  ;    ;      ; 1      ; PIN_AA16                  ; CLOCK2_50                                                         ;
+;   20.000 ;   0.000  ; RR ; IC   ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|i                                                 ;
+;   20.661 ;   0.661  ; RR ; CELL ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|o                                                 ;
+;   21.855 ;   1.194  ; RR ; IC   ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkin[2]   ;
+;   22.124 ;   0.269  ; RR ; CELL ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkout     ;
+;   22.124 ;   0.000  ; RR ; IC   ; 10     ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin      ;
+;   17.634 ;   -4.490 ; RR ; COMP ; 1      ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]      ;
+;   17.634 ;   0.000  ; RR ; IC   ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0] ;
+;   18.958 ;   1.324  ; RR ; CELL ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk    ;
+;   19.777 ;   0.819  ; FF ; IC   ; 1      ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|inclk                 ;
+;   20.028 ;   0.251  ; FF ; CELL ; 135    ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|outclk                ;
+;   22.339 ;   2.311  ; FF ; IC   ; 1      ; IOOBUF_X38_Y81_N36        ; VGA_CLK~output|i                                                  ;
+;   25.547 ;   3.208  ; FR ; CELL ; 1      ; IOOBUF_X38_Y81_N36        ; VGA_CLK~output|o                                                  ;
+;   25.547 ;   0.000  ; RR ; CELL ; 0      ; PIN_A11                   ; VGA_CLK                                                           ;
+;   27.150 ;   1.603  ;    ;      ;        ;                           ; clock pessimism removed                                           ;
+; 26.920   ; -0.230   ;    ;      ;        ;                           ; clock uncertainty                                                 ;
+; 26.656   ; -0.264   ; R  ; oExt ; 0      ; PIN_H13                   ; VGA_B[2]                                                          ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+
+----------------------------
+; Extra Fitter Information ;
+----------------------------
+HTML report is unavailable in plain text report export.
+
+
+Path #2: Setup slack is 18.271 
+===============================================================================
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Path Summary                                                                                                                                                     ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Property           ; Value                                                                                                                                       ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; From Node          ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[5] ;
+; To Node            ; VGA_G[5]                                                                                                                                    ;
+; Launch Clock       ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                                                                              ;
+; Latch Clock        ; clk_vga                                                                                                                                     ;
+; Data Arrival Time  ; 8.437                                                                                                                                       ;
+; Data Required Time ; 26.708                                                                                                                                      ;
+; Slack              ; 18.271                                                                                                                                      ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------+
+; Statistics                                                                           ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+; Property               ; Value  ; Count ; Total Delay ; % of Total ; Min    ; Max    ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+; Setup Relationship     ; 20.000 ;       ;             ;            ;        ;        ;
+; Clock Skew             ; 1.831  ;       ;             ;            ;        ;        ;
+; Data Delay             ; 3.118  ;       ;             ;            ;        ;        ;
+; Number of Logic Levels ;        ; 0     ;             ;            ;        ;        ;
+; Physical Delays        ;        ;       ;             ;            ;        ;        ;
+;  Arrival Path          ;        ;       ;             ;            ;        ;        ;
+;   Clock                ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 6     ; 5.219       ; 60         ; 0.000  ; 2.918  ;
+;    Cell                ;        ; 5     ; 3.549       ; 40         ; 0.268  ; 1.573  ;
+;    PLL Compensation    ;        ; 1     ; -3.449      ; 0          ; -3.449 ; -3.449 ;
+;   Data                 ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 1     ; 0.000       ; 0          ; 0.000  ; 0.000  ;
+;    Cell                ;        ; 3     ; 3.118       ; 100        ; 0.000  ; 2.611  ;
+;    uTco                ;        ; 1     ; 0.000       ; 0          ; 0.000  ; 0.000  ;
+;  Required Path         ;        ;       ;             ;            ;        ;        ;
+;   Clock                ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 6     ; 4.324       ; 43         ; 0.000  ; 2.311  ;
+;    Cell                ;        ; 6     ; 5.713       ; 57         ; 0.000  ; 3.208  ;
+;    PLL Compensation    ;        ; 1     ; -4.490      ; 0          ; -4.490 ; -4.490 ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+Note: Negative delays are omitted from totals when calculating percentages
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Data Arrival Path                                                                                                                                                                                                  ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Total    ; Incr     ; RF ; Type ; Fanout ; Location                  ; Element                                                                                                                                     ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; 0.000    ; 0.000    ;    ;      ;        ;                           ; launch edge time                                                                                                                            ;
+; 5.319    ; 5.319    ;    ;      ;        ;                           ; clock path                                                                                                                                  ;
+;   0.000  ;   0.000  ;    ;      ;        ;                           ; source latency                                                                                                                              ;
+;   0.000  ;   0.000  ;    ;      ; 1      ; PIN_AA16                  ; CLOCK2_50                                                                                                                                   ;
+;   0.000  ;   0.000  ; RR ; IC   ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|i                                                                                                                           ;
+;   0.661  ;   0.661  ; RR ; CELL ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|o                                                                                                                           ;
+;   1.992  ;   1.331  ; RR ; IC   ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkin[2]                                                                             ;
+;   2.283  ;   0.291  ; RR ; CELL ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkout                                                                               ;
+;   2.283  ;   0.000  ; RR ; IC   ; 10     ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin                                                                                ;
+;   -1.166 ;   -3.449 ; RR ; COMP ; 1      ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                                                                                ;
+;   -1.166 ;   0.000  ; RR ; IC   ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                                                                           ;
+;   0.407  ;   1.573  ; RR ; CELL ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                                                                              ;
+;   1.377  ;   0.970  ; RR ; IC   ; 1      ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|inclk                                                                                           ;
+;   1.645  ;   0.268  ; RR ; CELL ; 135    ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|outclk                                                                                          ;
+;   4.563  ;   2.918  ; RR ; IC   ; 1      ; DDIOOUTCELL_X10_Y81_N50   ; The_System|vga_subsystem|vga_controller|VGA_G[5]|clk                                                                                        ;
+;   5.319  ;   0.756  ; RR ; CELL ; 1      ; DDIOOUTCELL_X10_Y81_N50   ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[5] ;
+; 8.437    ; 3.118    ;    ;      ;        ;                           ; data path                                                                                                                                   ;
+;   5.319  ;   0.000  ;    ; uTco ; 1      ; DDIOOUTCELL_X10_Y81_N50   ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[5] ;
+;   5.826  ;   0.507  ; RR ; CELL ; 1      ; DDIOOUTCELL_X10_Y81_N50   ; The_System|vga_subsystem|vga_controller|VGA_G[5]|q                                                                                          ;
+;   5.826  ;   0.000  ; RR ; IC   ; 1      ; IOOBUF_X10_Y81_N42        ; VGA_G[5]~output|i                                                                                                                           ;
+;   8.437  ;   2.611  ; RR ; CELL ; 1      ; IOOBUF_X10_Y81_N42        ; VGA_G[5]~output|o                                                                                                                           ;
+;   8.437  ;   0.000  ; RR ; CELL ; 0      ; PIN_G12                   ; VGA_G[5]                                                                                                                                    ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Data Required Path                                                                                                                       ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+; Total    ; Incr     ; RF ; Type ; Fanout ; Location                  ; Element                                                           ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+; 20.000   ; 20.000   ;    ;      ;        ;                           ; latch edge time                                                   ;
+; 27.150   ; 7.150    ;    ;      ;        ;                           ; clock path                                                        ;
+;   20.000 ;   0.000  ;    ;      ;        ;                           ; source latency                                                    ;
+;   20.000 ;   0.000  ;    ;      ; 1      ; PIN_AA16                  ; CLOCK2_50                                                         ;
+;   20.000 ;   0.000  ; RR ; IC   ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|i                                                 ;
+;   20.661 ;   0.661  ; RR ; CELL ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|o                                                 ;
+;   21.855 ;   1.194  ; RR ; IC   ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkin[2]   ;
+;   22.124 ;   0.269  ; RR ; CELL ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkout     ;
+;   22.124 ;   0.000  ; RR ; IC   ; 10     ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin      ;
+;   17.634 ;   -4.490 ; RR ; COMP ; 1      ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]      ;
+;   17.634 ;   0.000  ; RR ; IC   ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0] ;
+;   18.958 ;   1.324  ; RR ; CELL ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk    ;
+;   19.777 ;   0.819  ; FF ; IC   ; 1      ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|inclk                 ;
+;   20.028 ;   0.251  ; FF ; CELL ; 135    ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|outclk                ;
+;   22.339 ;   2.311  ; FF ; IC   ; 1      ; IOOBUF_X38_Y81_N36        ; VGA_CLK~output|i                                                  ;
+;   25.547 ;   3.208  ; FR ; CELL ; 1      ; IOOBUF_X38_Y81_N36        ; VGA_CLK~output|o                                                  ;
+;   25.547 ;   0.000  ; RR ; CELL ; 0      ; PIN_A11                   ; VGA_CLK                                                           ;
+;   27.150 ;   1.603  ;    ;      ;        ;                           ; clock pessimism removed                                           ;
+; 26.920   ; -0.230   ;    ;      ;        ;                           ; clock uncertainty                                                 ;
+; 26.708   ; -0.212   ; R  ; oExt ; 0      ; PIN_G12                   ; VGA_G[5]                                                          ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+
+----------------------------
+; Extra Fitter Information ;
+----------------------------
+HTML report is unavailable in plain text report export.
+
+
+Path #3: Setup slack is 18.277 
+===============================================================================
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Path Summary                                                                                                                                                     ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Property           ; Value                                                                                                                                       ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; From Node          ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[3] ;
+; To Node            ; VGA_G[3]                                                                                                                                    ;
+; Launch Clock       ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                                                                              ;
+; Latch Clock        ; clk_vga                                                                                                                                     ;
+; Data Arrival Time  ; 8.431                                                                                                                                       ;
+; Data Required Time ; 26.708                                                                                                                                      ;
+; Slack              ; 18.277                                                                                                                                      ;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------+
+; Statistics                                                                           ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+; Property               ; Value  ; Count ; Total Delay ; % of Total ; Min    ; Max    ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+; Setup Relationship     ; 20.000 ;       ;             ;            ;        ;        ;
+; Clock Skew             ; 1.846  ;       ;             ;            ;        ;        ;
+; Data Delay             ; 3.127  ;       ;             ;            ;        ;        ;
+; Number of Logic Levels ;        ; 0     ;             ;            ;        ;        ;
+; Physical Delays        ;        ;       ;             ;            ;        ;        ;
+;  Arrival Path          ;        ;       ;             ;            ;        ;        ;
+;   Clock                ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 6     ; 5.204       ; 59         ; 0.000  ; 2.903  ;
+;    Cell                ;        ; 5     ; 3.549       ; 41         ; 0.268  ; 1.573  ;
+;    PLL Compensation    ;        ; 1     ; -3.449      ; 0          ; -3.449 ; -3.449 ;
+;   Data                 ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 1     ; 0.000       ; 0          ; 0.000  ; 0.000  ;
+;    Cell                ;        ; 3     ; 3.127       ; 100        ; 0.000  ; 2.621  ;
+;    uTco                ;        ; 1     ; 0.000       ; 0          ; 0.000  ; 0.000  ;
+;  Required Path         ;        ;       ;             ;            ;        ;        ;
+;   Clock                ;        ;       ;             ;            ;        ;        ;
+;    IC                  ;        ; 6     ; 4.324       ; 43         ; 0.000  ; 2.311  ;
+;    Cell                ;        ; 6     ; 5.713       ; 57         ; 0.000  ; 3.208  ;
+;    PLL Compensation    ;        ; 1     ; -4.490      ; 0          ; -4.490 ; -4.490 ;
++------------------------+--------+-------+-------------+------------+--------+--------+
+Note: Negative delays are omitted from totals when calculating percentages
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Data Arrival Path                                                                                                                                                                                                  ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Total    ; Incr     ; RF ; Type ; Fanout ; Location                  ; Element                                                                                                                                     ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; 0.000    ; 0.000    ;    ;      ;        ;                           ; launch edge time                                                                                                                            ;
+; 5.304    ; 5.304    ;    ;      ;        ;                           ; clock path                                                                                                                                  ;
+;   0.000  ;   0.000  ;    ;      ;        ;                           ; source latency                                                                                                                              ;
+;   0.000  ;   0.000  ;    ;      ; 1      ; PIN_AA16                  ; CLOCK2_50                                                                                                                                   ;
+;   0.000  ;   0.000  ; RR ; IC   ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|i                                                                                                                           ;
+;   0.661  ;   0.661  ; RR ; CELL ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|o                                                                                                                           ;
+;   1.992  ;   1.331  ; RR ; IC   ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkin[2]                                                                             ;
+;   2.283  ;   0.291  ; RR ; CELL ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkout                                                                               ;
+;   2.283  ;   0.000  ; RR ; IC   ; 10     ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin                                                                                ;
+;   -1.166 ;   -3.449 ; RR ; COMP ; 1      ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                                                                                ;
+;   -1.166 ;   0.000  ; RR ; IC   ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                                                                           ;
+;   0.407  ;   1.573  ; RR ; CELL ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                                                                              ;
+;   1.377  ;   0.970  ; RR ; IC   ; 1      ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|inclk                                                                                           ;
+;   1.645  ;   0.268  ; RR ; CELL ; 135    ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|outclk                                                                                          ;
+;   4.548  ;   2.903  ; RR ; IC   ; 1      ; DDIOOUTCELL_X6_Y81_N10    ; The_System|vga_subsystem|vga_controller|VGA_G[3]|clk                                                                                        ;
+;   5.304  ;   0.756  ; RR ; CELL ; 1      ; DDIOOUTCELL_X6_Y81_N10    ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[3] ;
+; 8.431    ; 3.127    ;    ;      ;        ;                           ; data path                                                                                                                                   ;
+;   5.304  ;   0.000  ;    ; uTco ; 1      ; DDIOOUTCELL_X6_Y81_N10    ; Computer_System:The_System|Computer_System_VGA_Subsystem:vga_subsystem|Computer_System_VGA_Subsystem_VGA_Controller:vga_controller|VGA_G[3] ;
+;   5.810  ;   0.506  ; RR ; CELL ; 1      ; DDIOOUTCELL_X6_Y81_N10    ; The_System|vga_subsystem|vga_controller|VGA_G[3]|q                                                                                          ;
+;   5.810  ;   0.000  ; RR ; IC   ; 1      ; IOOBUF_X6_Y81_N2          ; VGA_G[3]~output|i                                                                                                                           ;
+;   8.431  ;   2.621  ; RR ; CELL ; 1      ; IOOBUF_X6_Y81_N2          ; VGA_G[3]~output|o                                                                                                                           ;
+;   8.431  ;   0.000  ; RR ; CELL ; 0      ; PIN_G10                   ; VGA_G[3]                                                                                                                                    ;
++----------+----------+----+------+--------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Data Required Path                                                                                                                       ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+; Total    ; Incr     ; RF ; Type ; Fanout ; Location                  ; Element                                                           ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+; 20.000   ; 20.000   ;    ;      ;        ;                           ; latch edge time                                                   ;
+; 27.150   ; 7.150    ;    ;      ;        ;                           ; clock path                                                        ;
+;   20.000 ;   0.000  ;    ;      ;        ;                           ; source latency                                                    ;
+;   20.000 ;   0.000  ;    ;      ; 1      ; PIN_AA16                  ; CLOCK2_50                                                         ;
+;   20.000 ;   0.000  ; RR ; IC   ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|i                                                 ;
+;   20.661 ;   0.661  ; RR ; CELL ; 1      ; IOIBUF_X56_Y0_N1          ; CLOCK2_50~input|o                                                 ;
+;   21.855 ;   1.194  ; RR ; IC   ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkin[2]   ;
+;   22.124 ;   0.269  ; RR ; CELL ; 1      ; PLLREFCLKSELECT_X0_Y7_N0  ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT|clkout     ;
+;   22.124 ;   0.000  ; RR ; IC   ; 10     ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin      ;
+;   17.634 ;   -4.490 ; RR ; COMP ; 1      ; FRACTIONALPLL_X0_Y1_N0    ; VGA_PLL|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]      ;
+;   17.634 ;   0.000  ; RR ; IC   ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0] ;
+;   18.958 ;   1.324  ; RR ; CELL ; 1      ; PLLOUTPUTCOUNTER_X0_Y7_N1 ; VGA_PLL|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk    ;
+;   19.777 ;   0.819  ; FF ; IC   ; 1      ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|inclk                 ;
+;   20.028 ;   0.251  ; FF ; CELL ; 135    ; CLKCTRL_G5                ; VGA_PLL|altera_pll_i|outclk_wire[0]~CLKENA0|outclk                ;
+;   22.339 ;   2.311  ; FF ; IC   ; 1      ; IOOBUF_X38_Y81_N36        ; VGA_CLK~output|i                                                  ;
+;   25.547 ;   3.208  ; FR ; CELL ; 1      ; IOOBUF_X38_Y81_N36        ; VGA_CLK~output|o                                                  ;
+;   25.547 ;   0.000  ; RR ; CELL ; 0      ; PIN_A11                   ; VGA_CLK                                                           ;
+;   27.150 ;   1.603  ;    ;      ;        ;                           ; clock pessimism removed                                           ;
+; 26.920   ; -0.230   ;    ;      ;        ;                           ; clock uncertainty                                                 ;
+; 26.708   ; -0.212   ; R  ; oExt ; 0      ; PIN_G10                   ; VGA_G[3]                                                          ;
++----------+----------+----+------+--------+---------------------------+-------------------------------------------------------------------+
+
+----------------------------
+; Extra Fitter Information ;
+----------------------------
+HTML report is unavailable in plain text report export.
+
+
