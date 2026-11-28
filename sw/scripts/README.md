@@ -1,87 +1,39 @@
-# Arranque automatico del reproductor
+# Arranque automático
 
-El reproductor inicia automaticamente al encender la DE1-SoC,
-sin necesidad de utilizar Quartus o una computadora externa.
+Se utilizó DE1-SoC con Linux Yocto, kernel 3.12.0-00307-g507abb4-dirty, MSEL 0x0A y archivo RBF comprimido FPP. Verificar el modo MSEL de la revisión de placa antes de cambiar switches; hacer cambios físicos sin alimentación.
 
-## Configuracion utilizada
+En `/home/root` se necesitan `DE1_SoC_Reproductor.rbf`, `buttons.ko`, `player_v4` y `canciones/*.wav`. El script final habilita `PLAYER_ADC=1` y `PLAYER_VGA=1`.
 
-- DE1-SoC.
-- Linux Yocto con kernel 3.12.0.
-- MSEL configurado en 0x0A.
-- Archivo RBF comprimido en modo FPP.
-- Reproductor V4.
-- Driver de botones por interrupciones.
-
-## Archivos necesarios en la placa
-
-Los siguientes archivos deben estar en /home/root:
-
-- DE1_SoC_Reproductor.rbf
-- player_v4
-- buttons.ko
-- pistas/ (directorio con los archivos WAV)
-
-## Instalacion del script
-
-Copiar el archivo reproductor a /etc/init.d/ de la placa.
-
-Desde la DE1-SoC ejecutar:
+Copiar `reproductor` a `/etc/init.d/reproductor`. En la placa, desde Picocom o SSH, instalar los enlaces si aún no existen:
 
 ```sh
 chmod +x /etc/init.d/reproductor
-
 ln -s ../init.d/reproductor /etc/rcS.d/S39reproductor
 ln -s ../init.d/reproductor /etc/rc0.d/K08reproductor
 ln -s ../init.d/reproductor /etc/rc6.d/K08reproductor
 ```
 
-El script deshabilita los puentes HPS-FPGA, configura la FPGA,
-comprueba su estado, habilita nuevamente los puentes, carga
-el driver de botones e inicia el reproductor.
+Eliminar solamente enlaces de arranque anteriores del mismo reproductor si quedaron duplicados. El script verifica archivos, detiene el uso del driver, deshabilita los tres puentes, configura la FPGA, comprueba `user mode`, habilita los puentes, carga el driver y ejecuta el reproductor en segundo plano. No iniciarlo si existe otra prueba que accede a MMIO (por ejemplo player_latency o test_hw).
 
-## Optimizacion del arranque
+En la SD del proyecto se adelantó el inicio a rcS antes de DHCP, y se deshabilitaron los servicios de demostración lighttpd y gsrd_init.sh en rc5. Se dejó SSH habilitado. En U-Boot se cambió bootdelay de 5 a 1 segundo (`setenv bootdelay 1`, `saveenv`). Estos cambios ya están hechos en la tarjeta preparada.
 
-Se inicia el reproductor antes de la configuracion de red
-para evitar la espera del DHCP.
+| Versión | Tiempo aproximado |
+|---|---:|
+| Inicial | 20 s |
+| Servicios optimizados | 10-11 s |
+| U-Boot optimizado | 7 s |
+| Canciones + ADC + VGA | 8 s |
 
-Tambien se deshabilitaron los servicios de demostracion
-que no son necesarios para el proyecto:
-
-```sh
-mv /etc/rc5.d/S70lighttpd /etc/rc5.d/disabled-S70lighttpd
-mv /etc/rc5.d/S90gsrd_init.sh /etc/rc5.d/disabled-S90gsrd_init.sh
-```
-
-Se mantiene SSH para facilitar las pruebas y la transferencia
-de archivos.
-
-En U-Boot se redujo el tiempo de espera de 5 a 1 segundo:
-
-```sh
-setenv bootdelay 1
-saveenv
-```
-
-## Resultados
-
-| Configuracion | Tiempo de arranque |
-|---|---|
-| Arranque automatico inicial | 20 segundos |
-| Optimizacion de servicios | 10-11 segundos |
-| Optimizacion de U-Boot | 7 segundos |
-
-En la ultima prueba se cumple el requisito de inicio
-en menos de 10 segundos.
-
-## Verificacion
-
-Desde Linux se puede comprobar el funcionamiento con:
+Verificación en la placa:
 
 ```sh
 pidof player_v4
 cat /sys/class/fpga/fpga0/status
 lsmod
 tail -15 /tmp/reproductor.log
+./leer_vga
 ```
 
-El estado de la FPGA debe ser "user mode".
+La última instrucción requiere haber compilado y copiado `sw/tests/leer_vga.c`. Se verificó que tras reiniciar aparecen los metadatos en la memoria VGA. La imagen física aún debe comprobarse con un monitor.
+
+Para detener la reproducción automática: `/etc/init.d/reproductor stop`. Comprobar que `pidof player_v4` no devuelve PID antes de ejecutar otra instancia. Para reiniciar usar el script `start`, únicamente sin otros procesos de prueba accediendo a FPGA.

@@ -1,0 +1,404 @@
+Botones: driver de interrupciones activo
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Estado: PAUSA
+LATENCIA BOTON KEY0: 0.029 ms
+Estado: PLAY
+LATENCIA BOTON KEY0: 0.021 ms
+Pista 2/10: pistas/pista02.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 2 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Estado: PAUSA
+LATENCIA BOTON KEY0: 0.025 ms
+Estado: PLAY
+LATENCIA BOTON KEY0: 0.021 ms
+Estado: PAUSA
+LATENCIA BOTON KEY0: 0.022 ms
+Estado: PLAY
+LATENCIA BOTON KEY0: 0.022 ms
+Pista 3/10: pistas/pista03.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 3 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Estado: PAUSA
+LATENCIA BOTON KEY0: 0.024 ms
+Estado: PLAY
+LATENCIA BOTON KEY0: 0.021 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Estado: PAUSA
+LATENCIA BOTON KEY0: 0.020 ms
+Estado: PLAY
+LATENCIA BOTON KEY0: 0.020 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.158 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.148 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.147 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.142 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.139 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.143 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.140 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.139 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.141 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY1: 0.138 ms
+Pista 3/10: pistas/pista03.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 3 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.146 ms
+Pista 2/10: pistas/pista02.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 2 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.145 ms
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.152 ms
+Pista 10/10: pistas/pista10.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 10 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.149 ms
+Pista 9/10: pistas/pista09.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 9 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.146 ms
+Pista 8/10: pistas/pista08.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 8 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.147 ms
+Pista 7/10: pistas/pista07.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 7 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.151 ms
+Pista 6/10: pistas/pista06.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 6 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.147 ms
+Pista 5/10: pistas/pista05.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 5 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.147 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.148 ms
+Pista 5/10: pistas/pista05.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 5 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.138 ms
+Pista 6/10: pistas/pista06.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 6 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.143 ms
+Pista 7/10: pistas/pista07.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 7 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.146 ms
+Pista 8/10: pistas/pista08.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 8 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.140 ms
+Pista 9/10: pistas/pista09.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 9 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.145 ms
+Pista 10/10: pistas/pista10.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 10 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.148 ms
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.146 ms
+Pista 2/10: pistas/pista02.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 2 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.142 ms
+Pista 3/10: pistas/pista03.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 3 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.145 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.148 ms
+Estado: PLAY
+LATENCIA BOTON KEY0: 0.020 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.034 ms
+Pista 5/10: pistas/pista05.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 5 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Pasa-bajos FIR (HW)
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.025 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.029 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.017 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.017 ms
+Pista 6/10: pistas/pista06.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 6 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Pasa-bajos FIR (HW)
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.028 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.031 ms
+Pista 7/10: pistas/pista07.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 7 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Pasa-bajos FIR (HW)
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.026 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.029 ms
+Pista 8/10: pistas/pista08.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 8 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Pasa-bajos FIR (HW)
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.026 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.028 ms
+Pista 9/10: pistas/pista09.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 9 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Pasa-bajos FIR (HW)
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.030 ms
+Pista 10/10: pistas/pista10.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 10 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.024 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.025 ms
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.023 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.026 ms
+Pista 2/10: pistas/pista02.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 2 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.024 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.027 ms
+Pista 3/10: pistas/pista03.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 3 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.025 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.026 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.024 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.026 ms
+Pista 5/10: pistas/pista05.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 5 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.021 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.020 ms
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.026 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.025 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.018 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.015 ms
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.025 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.020 ms
+Pista 6/10: pistas/pista06.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 6 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Eco
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.031 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.015 ms
+Filtro: Pasa-bajos FIR (HW)
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.014 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.030 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.020 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.018 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.015 ms
+Pista 7/10: pistas/pista07.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 7 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Eco
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.024 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.018 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.027 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.018 ms
+Pista 8/10: pistas/pista08.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 8 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Eco
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.024 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.017 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.028 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.018 ms
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.025 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.022 ms
+Pista 9/10: pistas/pista09.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 9 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.032 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.020 ms
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.030 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.018 ms
+Pista 10/10: pistas/pista10.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 10 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.025 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.021 ms
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.024 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.018 ms
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.023 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.020 ms
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Eco
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.026 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.018 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.027 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.020 ms
+Pista 2/10: pistas/pista02.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 2 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Eco
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.024 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.020 ms
+Filtro: Pasa-altos
+LATENCIA FILTRO Pasa-altos: 0.026 ms
+Filtro: Eco
+LATENCIA FILTRO Eco: 0.018 ms
+Pista 3/10: pistas/pista03.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 3 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Eco
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.028 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.016 ms
+Filtro: Pasa-bajos FIR (HW)
+LATENCIA FILTRO Pasa-bajos FIR (HW): 0.017 ms
+Filtro: Bypass
+LATENCIA FILTRO Bypass: 0.015 ms

@@ -1,60 +1,76 @@
 # Recursos y potencia del SoC
 
-Resultados de Quartus Prime Lite 25.1std sobre la DE1-SoC (5CSEMA5F31C6),
-para el **SoC base** (commit `23db587` de `feat/soc-base`), todavía **sin el
-filtro DSP propio**. Esta tabla se vuelve a llenar cuando el filtro se integre,
-para comparar.
+Quartus Prime Lite 25.1std, Cyclone V 5CSEMA5F31C6. Se compara el SoC base (reporte histórico del commit 23db587) con el integrado del 27/11/2026.
 
-Cómo regenerar: `cd hw && make all && make power`.
+| Recurso | Base | Integrado | Disponible |
+|---|---:|---:|---:|
+| ALMs | 4187 | 4756 (15%) | 32070 |
+| Registros | 5455 | 7021 | — |
+| Memoria embebida (bits) | 2209664 | 2209664 (54%) | 4065280 |
+| RAM blocks | 276 | 276 (70%) | 397 |
+| DSP | 0 | 2 (2%) | 87 |
+| Pines | 368 | 368 (81%) | 457 |
+| PLL | 3 | 3 (50%) | 6 |
+| DLL | 1 | 1 (25%) | 4 |
 
-## Utilización de recursos (sistema completo)
+La diferencia entre compilaciones incluye cambios de integración y optimización del Fitter, por lo que no equivale exactamente al costo aislado del FIR.
 
-| Recurso | Usado | Disponible | % |
-|---|---|---|---|
-| Lógica (ALMs) | 4 187 | 32 070 | 13 % |
-| Registros | 5 455 | — | — |
-| Pines | 368 | 457 | 81 % |
-| Memoria en bloque (bits) | 2 209 664 | 4 065 280 | 54 % |
-| Bloques de RAM (M10K) | 276 | 397 | 70 % |
-| Bloques DSP | 0 | 87 | 0 % |
-| PLLs | 3 | 6 | 50 % |
-| DLLs | 1 | 4 | 25 % |
+## Hardware personalizado (Resource Utilization by Entity)
 
-Fuente: `hw/build/DE1_SoC_Reproductor.fit.summary`.
+| Entidad | ALMs needed | Registros | Bits RAM | DSP |
+|---|---:|---:|---:|---:|
+| FIR izquierdo | 187.5 | 667 | 0 | 1 |
+| FIR derecho | 188.5 | 658 | 0 | 1 |
+| Control MMIO (sin submódulos) | 10.4 | 1 | 0 | 0 |
+| FIR estéreo total | 386.4 | 1326 | 0 | 2 |
 
-## Consumo de potencia (PowerPlay Power Analyzer)
+El filtro utiliza aproximadamente 8.1% de las ALMs del sistema integrado. Se reutiliza un multiplicador por canal durante los 31 taps en vez de implementar 31 multiplicadores en paralelo. El framebuffer de video explica una parte importante de la memoria ocupada (256 KiB reservados); se utiliza como fondo para la composición con caracteres.
 
-| Componente | Potencia |
-|---|---|
-| Dinámica del núcleo | 368,91 mW |
-| Estática del núcleo | 428,20 mW |
-| E/S | 107,86 mW |
-| **Total** | **904,98 mW** |
+## PowerPlay
 
-Fuente: `hw/build/DE1_SoC_Reproductor.pow.summary`.
+| Componente | Base (mW) | Integrado (mW) |
+|---|---:|---:|
+| Núcleo dinámico | 368.91 | 376.08 |
+| Núcleo estático | 428.20 | 428.25 |
+| I/O | 107.86 | 107.61 |
+| Total reportado | 904.98 | 911.94 |
 
-**Confianza de la estimación: baja.** Quartus usó la tasa de conmutación por
-defecto (12,5 %) porque no se le dio un archivo de actividad (VCD/SAF) de una
-simulación del sistema. La cifra sirve para comparar versiones del diseño entre
-sí, no como consumo real medido.
+La diferencia estimada del sistema es de 6.96 mW. PowerPlay indicó confianza baja por falta de información de actividad; no se trata de una medición eléctrica ni de una comparación aislada entre FIR en hardware y FIR en software. La estimación no incluye necesariamente todo el consumo de la placa.
 
-## Observaciones para el análisis de la partición HW/SW
+## Timing Analyzer - análisis original - análisis original
 
-- **La memoria es el recurso más cargado.** La mayor parte la ocupa el
-  framebuffer de la VGA (`Pixel_Buffer`, 256 KB on-chip, 320×240 a 16 bits). Si
-  la interfaz solo muestra texto con el *character buffer*, se puede reducir o
-  quitar y liberar cerca de la mitad de la memoria en bloque.
-- **Los 87 bloques DSP están libres.** El filtro en HDL los va a usar para sus
-  multiplicadores; comparar el antes y el después de integrarlo muestra el costo
-  real de mover un filtro de software a hardware.
-- **El decodificador de 7 segmentos está en hardware** (`seg7_bcd.v`): el software
-  solo escribe MM:SS en BCD (16 bits) y la FPGA hace la conversión a segmentos.
-  Su costo en lógica es mínimo.
-- **El reloj de audio es de 11,2896 MHz** para trabajar a 44,1 kHz exactos. El
-  software configura el registro R8 del WM8731 en `0x20` al iniciar.
+| Comprobación | Peor slack reportado (ns) |
+|---|---:|
+| Setup System_PLL | +0.030 |
+| Setup VGA_PLL interno | +35.295 |
+| Setup clk_vga | -8.945 |
+| Hold | +0.077 |
+| Recovery | +2.398 |
+| Removal | +0.460 |
+| Minimum pulse width | +0.471 |
 
-## Pendiente
+El reloj del sistema cumple los chequeos de setup reportados en las esquinas analizadas. La salida asociada a `clk_vga` presenta una violación, con TNS de -219.069 ns en la peor esquina. No se considera cerrado el timing de todo el SoC. Se conservó el bitstream probado y queda pendiente validar la imagen física y revisar la relación entre el reloj generado por el PLL y las restricciones de salida VGA si se requiere una corrección.
 
-- Reporte de recursos **por entidad** del módulo propio (filtro DSP), con
-  *Fitter → Resource Section → Resource Utilization by Entity*, una vez integrado.
-- Repetir la estimación de potencia con el filtro integrado.
+Regeneración de reportes: `cd hw && make all && make power`. Archivos `.fit.summary`, `.fit.rpt`, `.pow.summary`, `.sta.summary` en `hw/build/`.
+
+## Corrección del reloj VGA
+
+La restricción original declaraba VGA_CLK como un reloj
+independiente de 25.18 MHz, pero el PLL genera 25 MHz
+y el controlador invierte el reloj de salida.
+
+Se corrigió el SDC usando create_generated_clock con -invert.
+
+| Comprobación | Slack (ns) |
+|---|---:|
+| Setup VGA corregido (Slow 85 C) | +18.244 |
+| Hold VGA corregido (Slow 85 C) | +18.069 |
+| Peor setup global multicorner | +0.030 |
+| Peor hold global multicorner | +0.077 |
+
+El análisis se realizó sobre el diseño ya compilado,
+sin modificar el hardware ni reprogramar la FPGA.
+No se encontraron violaciones de setup y hold en las
+rutas analizadas. Permanecen warnings y rutas sin
+restricciones, y falta validar la imagen en un monitor.
+

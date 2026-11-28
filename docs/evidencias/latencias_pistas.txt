@@ -1,0 +1,125 @@
+Botones: driver de interrupciones activo
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+Pista 10/10: pistas/pista10.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 10 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 1.526 ms
+LATENCIA PISTA primer_frame: 1.786 ms
+Pista 9/10: pistas/pista09.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 9 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 1.476 ms
+LATENCIA PISTA primer_frame: 1.731 ms
+Pista 8/10: pistas/pista08.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 8 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 1.485 ms
+LATENCIA PISTA primer_frame: 1.741 ms
+Pista 7/10: pistas/pista07.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 7 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 1.472 ms
+LATENCIA PISTA primer_frame: 1.728 ms
+Pista 6/10: pistas/pista06.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 6 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 1.064 ms
+LATENCIA PISTA primer_frame: 1.076 ms
+Pista 5/10: pistas/pista05.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 5 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.188 ms
+LATENCIA PISTA primer_frame: 0.218 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.186 ms
+LATENCIA PISTA primer_frame: 0.205 ms
+Pista 3/10: pistas/pista03.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 3 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.185 ms
+LATENCIA PISTA primer_frame: 0.197 ms
+Pista 2/10: pistas/pista02.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 2 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.194 ms
+LATENCIA PISTA primer_frame: 0.207 ms
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY2: 0.198 ms
+LATENCIA PISTA primer_frame: 0.211 ms
+Pista 2/10: pistas/pista02.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 2 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.178 ms
+LATENCIA PISTA primer_frame: 0.190 ms
+Pista 3/10: pistas/pista03.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 3 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.173 ms
+LATENCIA PISTA primer_frame: 0.185 ms
+Pista 4/10: pistas/pista04.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 4 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.187 ms
+LATENCIA PISTA primer_frame: 0.199 ms
+Pista 5/10: pistas/pista05.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 5 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.177 ms
+LATENCIA PISTA primer_frame: 0.188 ms
+Pista 6/10: pistas/pista06.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 6 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.184 ms
+LATENCIA PISTA primer_frame: 0.196 ms
+Pista 7/10: pistas/pista07.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 7 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.194 ms
+LATENCIA PISTA primer_frame: 0.206 ms
+Pista 8/10: pistas/pista08.wav
+16000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 8 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.184 ms
+LATENCIA PISTA primer_frame: 0.197 ms
+Pista 9/10: pistas/pista09.wav
+44100 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 9 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.193 ms
+LATENCIA PISTA primer_frame: 0.206 ms
+Pista 10/10: pistas/pista10.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 10 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.193 ms
+LATENCIA PISTA primer_frame: 0.205 ms
+Pista 1/10: pistas/pista01.wav
+8000 Hz, 1 canales, 16 bits, 3.00 s
+Titulo: Pista de prueba 1 | Artista: Grupo Proyecto 2 | Album: Pruebas de audio
+Filtro: Bypass
+LATENCIA BOTON KEY3: 0.191 ms
+LATENCIA PISTA primer_frame: 0.204 ms
