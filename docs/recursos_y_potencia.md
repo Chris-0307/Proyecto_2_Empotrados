@@ -74,3 +74,18 @@ No se encontraron violaciones de setup y hold en las
 rutas analizadas. Permanecen warnings y rutas sin
 restricciones, y falta validar la imagen en un monitor.
 
+
+## Potencia del hardware personalizado
+
+A partir de la sección Thermal Power Dissipation by Hierarchy de PowerPlay se obtuvieron los siguientes resultados:
+
+| Módulo | Potencia estimada (mW) |
+|---|---:|
+| FIR izquierdo | 3.77 |
+| FIR derecho | 3.52 |
+| Control MMIO | 0.12 |
+| FIR estéreo completo | 7.41 |
+
+El FIR completo representa aproximadamente un 0.81 % de la potencia estimada del SoC. El diseño reutiliza un multiplicador por canal para reducir la cantidad de recursos necesarios.
+
+Estos resultados son estimaciones de PowerPlay con un nivel de confianza bajo y no corresponden a mediciones físicas de consumo.
